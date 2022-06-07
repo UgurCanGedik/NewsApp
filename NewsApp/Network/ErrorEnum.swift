@@ -19,14 +19,19 @@ enum serviceErrors: CustomStringConvertible {
 
         switch self {
         case .internetError:
+            print("Internet connection error. Check connection and try again")
             return "Internet connection error. Check connection and try again"
         case .urlError:
+            print("Url creation error. Contact with developer")
             return "Url creation error. Contact with developer"
         case .apiError:
+            print("Service error. Contact with developer")
             return "Service error. Contact with developer"
         case .valueError:
+            print("Value error. Contact with developer")
             return "Value error. Contact with developer"
         case .defaultError:
+            print("An error occured. Please try again later")
             return "An error occured. Please try again later"
         }
     }

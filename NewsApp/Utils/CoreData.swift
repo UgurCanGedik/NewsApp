@@ -78,9 +78,9 @@ class CoreData {
         }
         print("item deleted")
     }
-    
+
     static func isFavorite(url: String) -> Bool {
-        
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSManagedObject>(entityName: "News")
         do {
