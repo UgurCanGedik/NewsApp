@@ -9,3 +9,4 @@ Alamofire, Kingfisher, lottie-ios and IQKeyboardManagerSwift pods have been used
 In addition;  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A lottie have been added for the loading screen (While waiting API response).  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Favorite News are been stored in the CoreData.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Slide to delete Favorite News feature.  
