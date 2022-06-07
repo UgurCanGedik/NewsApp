@@ -7,9 +7,10 @@
 
 import Foundation
 
-extension String{
+extension String {
     
     func getDate() -> String {
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: self)

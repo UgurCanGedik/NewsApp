@@ -8,13 +8,15 @@
 import Foundation
 
 enum serviceErrors: CustomStringConvertible {
+
     case internetError
     case urlError
     case apiError
     case valueError
     case defaultError
-    
+
     var description : String {
+
         switch self {
         case .internetError:
             return "Internet connection error. Check connection and try again"

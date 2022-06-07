@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class CoreData {
+
     static func saveNews(article: Article) {
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "News", in: context)
@@ -21,21 +22,18 @@ class CoreData {
         newItem.setValue(article.url~, forKey: "url")
         newItem.setValue(article.urlToImage~, forKey: "urlToImage")
         newItem.setValue(article.source?.name~, forKey: "source")
-        
         do {
             try context.save()
         } catch let error as NSError {
             print("Saving error. \(error) - \(error.userInfo)")
         }
     }
-    
+
     static func getNews() -> [Article] {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
         request.returnsObjectsAsFaults = false
-        
         var news: [Article] = []
-        
         do {
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
@@ -53,15 +51,13 @@ class CoreData {
         } catch {
             print("Fetching error")
         }
-        
         return news
     }
-    
+
     static func deleteNews(url: String) {
-        
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSManagedObject>(entityName: "News")
-        
         do {
             let result = try context.fetch(request)
             if result.count > 0 {
@@ -87,7 +83,6 @@ class CoreData {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSManagedObject>(entityName: "News")
-        
         do {
             let result = try context.fetch(request)
             if result.count > 0 {

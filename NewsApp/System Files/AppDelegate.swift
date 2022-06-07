@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         customizeNavigationController()
-        // Override point for customization after application launch.
-        
         IQKeyboardManager.shared.enable = true
         return true
     }
@@ -34,9 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let font = UIFont(name: "Charter-Black", size: UIScreen.main.bounds.height < 850 ? 20 : 25) else { return }
         let attributes = [NSAttributedString.Key.font: font,
-                          NSAttributedString.Key.foregroundColor: UIColor(named: "AppMainColor")]
+                          NSAttributedString.Key.foregroundColor: UIColor.mainColor]
         let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = attributes
+        appearance.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
         appearance.backgroundColor = .white
         appearance.shadowColor = .clear
         UINavigationBar.appearance().standardAppearance = appearance

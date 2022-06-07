@@ -8,6 +8,7 @@
 import Foundation
 
 enum URLType {
+
     case topHeadlines
     case searchedNews
 }
