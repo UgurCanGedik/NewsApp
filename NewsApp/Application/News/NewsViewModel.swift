@@ -30,6 +30,8 @@ class NewsViewModel {
 
         if isNextPage {
             page += 1
+        } else {
+            news = []
         }
 
         BaseAPI.shared.request(methodType: .get,
@@ -67,8 +69,8 @@ class NewsViewModel {
     func parseSearchedData(_ response: NewsModel) {
 
         searhTotalNews = response.totalResults~
-        searchedNews = response.articles~
-        news.append(contentsOf: searchedNews)
+        news.append(contentsOf: response.articles~)
+        searchedNews = news
         delegate?.newsDataReached()
     }
 

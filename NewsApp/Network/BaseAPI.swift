@@ -17,12 +17,14 @@ class BaseAPI {
     let APIKey: String = "90f78b5e459f4557a6d285161db89387"
 
     private func networkIsReachable() ->  Bool {
+        
         let networkManager = NetworkReachabilityManager()
         let result = networkManager?.isReachable
         return result~
     }
 
     private func getURLPath(apiType: URLType, searchedText: String?, page: Int) -> URL? {
+        
         switch apiType {
         case .topHeadlines:
             return URL(string: baseURL + "top-headlines?country=tr" + "&page=\(page)" + "&apiKey=\(APIKey)")
@@ -41,6 +43,7 @@ class BaseAPI {
                              failed: @escaping (serviceErrors) -> Void) {
 
         if networkIsReachable() {
+            
             guard let url = getURLPath(apiType: apiType, searchedText: searchedText, page: page ?? 1) else {
                 failed(.urlError)
                 return

@@ -11,6 +11,6 @@ extension UIColor {
 
     @nonobjc class var mainColor: UIColor {
 
-        return UIColor(named: "AppMainColor") ?? UIColor.magenta
+        return UIColor(named: "AppMainColor")~
     }
 }

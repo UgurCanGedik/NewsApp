@@ -92,9 +92,7 @@ class NewsDetailVC: UIViewController {
 
     @objc func addFavorite() {
 
-        guard let _viewModel = viewModel else {
-            return
-        }
+        guard let _viewModel = viewModel else { return }
         if _viewModel.isFavoriteNews() {
             _viewModel.deleteArticle()
         } else {

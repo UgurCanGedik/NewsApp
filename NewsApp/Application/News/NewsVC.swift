@@ -17,6 +17,7 @@ class NewsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tabBarController?.delegate = self
         setTableView()
         viewModel.delegate = self
         getData(isNextPage: false)
@@ -91,7 +92,7 @@ extension NewsVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         let detail = NewsDetailVC(nibName: "NewsDetail", bundle: nil)
         detail.viewModel = NewsDetailViewModel(article: viewModel.getModel(index: indexPath.row))
         self.navigationController?.pushViewController(detail, animated: true)
@@ -125,5 +126,15 @@ extension NewsVC: UITextFieldDelegate {
             viewModel.searchEmpty()
             tableView.reloadData()
         }
+    }
+}
+
+extension NewsVC: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+            if tabBarIndex == 0 {
+                self.tableView.setContentOffset(CGPoint.zero, animated: true)
+            }
     }
 }

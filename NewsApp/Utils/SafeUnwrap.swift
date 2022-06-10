@@ -59,6 +59,11 @@ postfix func ~ <T>(_ val: [T]?) -> [T] {
     return safeUnwrap(val)
 }
 
+postfix func ~ (_ val: UIColor?) -> UIColor {
+    
+    return safeUnwrap(val)
+}
+
 postfix func ~ <T, U>(_ val: [T: U]?) -> [T: U] where T: Hashable {
 
     return safeUnwrap(val)
@@ -107,6 +112,11 @@ func safeUnwrap(_ bool: Bool?, default: Bool = false) -> Bool {
 func safeUnwrap(_ date: Date?, default: Date = Date()) -> Date {
 
     return date ?? `default`
+}
+
+func safeUnwrap(_ UIColor: UIColor?, default: UIColor = .blue) -> UIColor {
+
+    return UIColor ?? `default`
 }
 
 func safeUnwrap<T>(_ array: [T]?, default: [T] = [T]()) -> [T] {
